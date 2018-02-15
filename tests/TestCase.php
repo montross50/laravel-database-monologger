@@ -6,7 +6,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase {
 
     protected function getPackageProviders($app)
     {
-        return [MonologMysqlHandlerServiceProvider::class];
+        return [MonologDatabaseHandlerServiceProvider::class];
     }
 
     /**
@@ -27,7 +27,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase {
         $channels = $app['config']->get('logging.channels');
         $channels['database'] = [
             'driver' => 'custom',
-            'via' => DatabaseLogger::class,
+            'via' => CreateDatabaseLogger::class,
         ];
         $app['config']->set('logging.channels', $channels);
         $app['config']->set('logging.default', 'database');
@@ -37,7 +37,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase {
     {
         ini_set('memory_limit', '512M');
         parent::setUp();
-        $this->artisan('migrate', ['--database' => 'testing']);
-        $this->loadLaravelMigrations(['--database' => 'testing']);
+        $this->artisan('migrate', ['--database' => 'mysql']);
+        $this->loadLaravelMigrations(['--database' => 'mysql']);
     }
 }

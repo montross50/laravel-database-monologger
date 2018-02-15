@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Monolog\Logger;
 use Monolog\Handler\AbstractProcessingHandler;
 
-class MysqlHandler extends AbstractProcessingHandler
+class DatabaselHandler extends AbstractProcessingHandler
 {
     protected $table;
     protected $connection;
@@ -24,7 +24,7 @@ class MysqlHandler extends AbstractProcessingHandler
     {
         $data = [
             'instance'    => gethostname(),
-            'application' => env('APP_LOG_NAME','unknown'),
+            'application' => env('APP_LOG_NAME', 'unknown'),
             'message'     => $record['message'],
             'channel'     => $record['channel'],
             'level'       => $record['level'],

@@ -2,7 +2,7 @@
 
 Contributions are **welcome** and will be fully **credited**.
 
-We accept contributions via Pull Requests on [Github](https://github.com/montross50/laravel-monolog-mysql).
+We accept contributions via Pull Requests on [Github](https://github.com/montross50/laravel-database-monologger).
 
 
 ## Pull Requests

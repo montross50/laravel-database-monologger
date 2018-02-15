@@ -4,7 +4,7 @@ namespace Montross50\DatabaseLogger;
 
 use Illuminate\Support\ServiceProvider;
 
-class MonologMysqlHandlerServiceProvider extends ServiceProvider
+class MonologDatabaseHandlerServiceProvider extends ServiceProvider
 {
     /**
      * Indicates if loading of the provider is deferred.
@@ -20,7 +20,7 @@ class MonologMysqlHandlerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-       $this->loadMigrationsFrom(__DIR__.'/Migrations');
+        $this->loadMigrationsFrom(__DIR__.'/Migrations');
     }
 
     /**

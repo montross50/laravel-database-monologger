@@ -5,7 +5,7 @@ namespace Montross50\DatabaseLogger;
 use Monolog\Logger;
 use Montross50\DatabaseLogger\Monolog\Handler\DatabaselHandler;
 
-class DatabaseLogger
+class CreateDatabaseLogger
 {
     /**
      * Create a custom Monolog instance.
@@ -19,6 +19,6 @@ class DatabaseLogger
         $bubble = true;
         $level = $config['level'] ?? $level;
         $bubble = $config['bubble'] ?? $bubble;
-        return new Logger('database',[new DatabaselHandler($level,$bubble)]);
+        return new Logger('database', [new DatabaselHandler($level, $bubble)]);
     }
 }
