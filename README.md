@@ -55,7 +55,8 @@ If you discover any security related issues, please email sch43228@gmail.com ins
 
 ## Credits
 
-- Trent Schmidt
+- Trent Schmidt  
+
 Based on:
 - [Mark Hilton] (https://github.com/markhilton/monolog-mysql)
 - [Pedro Fornaza] (https://github.com/pedrofornaza/monolog-mysql)
