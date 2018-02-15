@@ -4,14 +4,14 @@ namespace Montross50\DatabaseLogger;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Monolog\Logger;
-use Montross50\DatabaseLogger\Monolog\Handler\DatabaselHandler;
+use Montross50\DatabaseLogger\Monolog\Handler\DatabaseHandler;
 
 class ManagerTests extends TestCase {
 
     /** @test */
     public function it_runs_the_migrations()
     {
-        $has_table = \DB::getSchemaBuilder()->hasTable('laravel_logs');
+        $has_table = DB::getSchemaBuilder()->hasTable('laravel_logs');
         $this->assertTrue($has_table);
     }
 
@@ -24,7 +24,7 @@ class ManagerTests extends TestCase {
         $logger = Log::getLogger();
         $this->assertInstanceOf(Logger::class,$logger);
         $handler = current($logger->getHandlers());
-        $this->assertInstanceOf(DatabaselHandler::class,$handler);
+        $this->assertInstanceOf(DatabaseHandler::class,$handler);
     }
 
     /** @test */
@@ -34,7 +34,7 @@ class ManagerTests extends TestCase {
         Log::alert('test1');
         $ctx = ['data'=>'foo'];
         Log::critical('test2',$ctx);
-        $logs = \DB::table('laravel_logs')->select('*')->get();
+        $logs = DB::table('laravel_logs')->select('*')->get();
         $this->assertEquals('test1',$logs[0]->message);
         $this->assertEquals('test2',$logs[1]->message);
         $this->assertEquals(json_encode(['data'=>'foo']),$logs[1]->context);

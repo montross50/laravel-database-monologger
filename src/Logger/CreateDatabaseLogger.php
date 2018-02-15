@@ -3,7 +3,7 @@
 namespace Montross50\DatabaseLogger;
 
 use Monolog\Logger;
-use Montross50\DatabaseLogger\Monolog\Handler\DatabaselHandler;
+use Montross50\DatabaseLogger\Monolog\Handler\DatabaseHandler;
 
 class CreateDatabaseLogger
 {
@@ -15,10 +15,6 @@ class CreateDatabaseLogger
      */
     public function __invoke(array $config)
     {
-        $level = Logger::DEBUG;
-        $bubble = true;
-        $level = $config['level'] ?? $level;
-        $bubble = $config['bubble'] ?? $bubble;
-        return new Logger('database', [new DatabaselHandler($level, $bubble)]);
+        return app(DatabaseHandler::class,[$config]);
     }
 }

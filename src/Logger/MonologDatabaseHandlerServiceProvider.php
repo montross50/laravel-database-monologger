@@ -3,6 +3,8 @@
 namespace Montross50\DatabaseLogger;
 
 use Illuminate\Support\ServiceProvider;
+use Monolog\Logger;
+use Montross50\DatabaseLogger\Monolog\Handler\DatabaseHandler;
 
 class MonologDatabaseHandlerServiceProvider extends ServiceProvider
 {
@@ -21,6 +23,13 @@ class MonologDatabaseHandlerServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadMigrationsFrom(__DIR__.'/Migrations');
+        $this->app->bind(DatabaseHandler::class,function($app,$params){
+            $level = Logger::DEBUG;
+            $bubble = true;
+            $level = $params['level'] ?? $level;
+            $bubble = $params['bubble'] ?? $bubble;
+            return new Logger('database', [new DatabaseHandler($level, $bubble)]);
+        });
     }
 
     /**
