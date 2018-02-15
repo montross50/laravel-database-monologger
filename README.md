@@ -13,19 +13,6 @@ This package will log errors into a database instead storage/log/laravel.log fil
 composer require montross50/laravel-database-monologger
 ~~~
 
-Open up `composer.json` and add the following or add the this to the existing providers.
-
-~~~
-"extra": {
-        "laravel": {
-            "providers": [
-                "Montross50\\DatabaseLogger\\MonologDatabaseHandlerServiceProvider"
-            ]
-        }
-    }
-~~~
-
-
 Migrate tables.
 
 ~~~
