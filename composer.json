@@ -1,0 +1,36 @@
+{
+    "name": "montross50/laravel-monolog-mysql",
+    "type": "library",
+    "description": "Laravel 5.6 MySQL driver for Monolog",
+    "keywords": ["laravel", "laravel5", "log", "monolog", "mysql", "laravel56"],
+    "homepage": "https://github.com/markhilton/monolog-mysql",
+    "license": "MIT",
+    "authors": [{
+        "name": "Trent Schmidt",
+        "email": "sch43228@gmail.com",
+        "role": "Developer"
+    }],
+    "require": {
+        "php": ">=7.1.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~7.0",
+        "squizlabs/php_codesniffer": "~2.3",
+        "orchestra/testbench": "~3.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Montross50\\DatabaseLogger\\": "src/Logger"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Montross50\\DatabaseLogger\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "format": "phpcbf --standard=psr2 src/"
+    },
+    "minimum-stability": "stable"
+}

@@ -1,0 +1,22 @@
+language: php
+sudo: required
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+php:
+  - 7.1
+
+env:
+  global:
+    - TEST_COMMAND="composer test"
+
+before_install:
+  - travis_retry composer self-update
+
+install:
+  - travis_retry composer install -o ${COMPOSER_FLAGS} --prefer-source --no-interaction
+
+script:
+  - $TEST_COMMAND
