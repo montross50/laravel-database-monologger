@@ -19,7 +19,7 @@ Open up `composer.json` and add the following or add the this to the existing pr
 "extra": {
         "laravel": {
             "providers": [
-                "Logger\\Laravel\\Provider\\MonologDatabaseHandlerServiceProvider"
+                "Montross50\\DatabaseLogger\\MonologDatabaseHandlerServiceProvider"
             ]
         }
     }
@@ -41,7 +41,7 @@ In your application `config/logging.php` add the following to the channels array
      'driver' => 'custom',
      'via' => Montross50\DatabaseLogger\CreateDatabaseLogger::class,
      'level' => Monolog\Logger::DEBUG \\optional
-  ];
+  ]
 ~~~
 
 ## Environment configuration
