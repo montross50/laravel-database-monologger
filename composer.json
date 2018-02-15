@@ -32,5 +32,13 @@
         "test": "vendor/bin/phpunit",
         "format": "phpcbf --standard=psr2 src/"
     },
+    
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Montross50\\DatabaseLogger\\MonologDatabaseHandlerServiceProvider"
+            ]
+        }
+    },
     "minimum-stability": "stable"
 }
