@@ -23,13 +23,14 @@ class MonologDatabaseHandlerServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadMigrationsFrom(__DIR__.'/Migrations');
-        $this->app->bind(DatabaseHandler::class,function($app,$params){
-            $level = Logger::DEBUG;
-            $bubble = true;
-            $level = $params['level'] ?? $level;
-            $bubble = $params['bubble'] ?? $bubble;
-            return new Logger('database', [new DatabaseHandler($level, $bubble)]);
-        });
+
+        $configPath = __DIR__ . '/../../config/db-logging.php';
+        if (function_exists('config_path')) {
+            $publishPath = config_path('db-logging.php');
+        } else {
+            $publishPath = base_path('config/db-logging.php');
+        }
+        $this->publishes([$configPath => $publishPath], 'config');
     }
 
     /**
@@ -39,7 +40,15 @@ class MonologDatabaseHandlerServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $configPath = __DIR__ . '/../../config/db-logging.php';
+        $this->mergeConfigFrom($configPath, 'db-logging');
+        $this->app->bind(DatabaseHandler::class, function ($app, $params) {
+            $level = Logger::DEBUG;
+            $bubble = true;
+            $level = $params['level'] ?? $level;
+            $bubble = $params['bubble'] ?? $bubble;
+            return new Logger('database', [new DatabaseHandler($level, $bubble, $app['config'])]);
+        });
     }
 
     /**

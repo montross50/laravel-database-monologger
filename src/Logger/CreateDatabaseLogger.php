@@ -15,6 +15,6 @@ class CreateDatabaseLogger
      */
     public function __invoke(array $config)
     {
-        return app(DatabaseHandler::class,[$config]);
+        return app(DatabaseHandler::class, [$config]);
     }
 }

@@ -38,7 +38,15 @@ If you wish to change default table name to write the log into or database conne
 ~~~
 DB_LOG_TABLE=laravel_logs
 DB_LOG_CONNECTION=mysql
-APP_LOG_NAME=YOUR_APP_NAME
+DB_LOG_EXCEPTION_LOG_LEVEL=alert //log level when there is some error writing the log
+APP_LOG_NAME=unknown
+DB_LOG_MAX_RECORD_LENGTH=65500 //number of characters before truncating log message and context
+~~~
+
+Alternatively you can publish the config file.
+
+~~~
+php artisan vendor:publish --provider="Montross50\DatabaseLogger\ServiceProvider" --tag=config
 ~~~
 
 ## Change log
