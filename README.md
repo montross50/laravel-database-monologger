@@ -46,7 +46,7 @@ DB_LOG_MAX_RECORD_LENGTH=65500 //number of characters before truncating log mess
 Alternatively you can publish the config file.
 
 ~~~
-php artisan vendor:publish --provider="Montross50\DatabaseLogger\ServiceProvider" --tag=config
+php artisan vendor:publish --provider="Montross50\DatabaseLogger\MonologDatabaseHandlerServiceProvider" --tag=config
 ~~~
 
 ## Change log
