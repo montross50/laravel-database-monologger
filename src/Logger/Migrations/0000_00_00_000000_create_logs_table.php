@@ -42,6 +42,6 @@ class CreateLogsTable extends Migration
      */
     public function down()
     {
-        Schema::drop(env('DB_LOG_TABLE', 'logs'));
+        Schema::drop(env('DB_LOG_TABLE', 'laravel_logs'));
     }
 }
