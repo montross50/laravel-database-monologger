@@ -1,8 +1,8 @@
 {
     "name": "montross50/laravel-database-monologger",
     "type": "library",
-    "description": "Monolog package for laravel 5.6 to allow database logging.",
-    "keywords": ["laravel", "laravel5", "log", "monolog", "mysql", "laravel56", "database"],
+    "description": "Monolog package for laravel 5.* to allow database logging.",
+    "keywords": ["laravel", "laravel5", "log", "monolog", "mysql", "laravel56", "laravel57", "database"],
     "homepage": "https://github.com/montross50/laravel-database-monologger",
     "license": "MIT",
     "authors": [{
@@ -12,13 +12,13 @@
     }],
     "require": {
         "php": ">=7.1.3",
-        "illuminate/support": "^5.0,<5.7"
+        "illuminate/support": "^5.0,<5.8"
     },
     "require-dev": {
         "phpunit/phpunit": "~7.0",
         "squizlabs/php_codesniffer": "^3.1",
         "orchestra/testbench": "~3.6",
-        "illuminate/config": "^5.0,<5.7",
+        "illuminate/config": "^5.0,<5.8",
         "mockery/mockery": "0.9.*"
     },
     "autoload": {
