@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Log;
 use Monolog\Logger;
 use Montross50\DatabaseLogger\Monolog\Handler\DatabaseHandler;
 
-class ManagerTests extends TestCase
+class LogTests extends TestCase
 {
 
     /** @test */
@@ -32,7 +32,6 @@ class ManagerTests extends TestCase
     /** @test */
     public function logger_logs()
     {
-
         Log::alert('test1');
         $ctx = ['data'=>'foo'];
         Log::critical('test2', $ctx);
@@ -47,7 +46,6 @@ class ManagerTests extends TestCase
      */
     public function logger_fail_logs()
     {
-
         $message = "test1";
         $exception = "failed";
         $connection = DB::connection('mysql');
@@ -97,7 +95,6 @@ class ManagerTests extends TestCase
      */
     public function logger_fail_on_connection_not_established()
     {
-
         $message = "test1";
         $exception = "failed";
         $query = \Mockery::mock(Builder::class)->makePartial();
