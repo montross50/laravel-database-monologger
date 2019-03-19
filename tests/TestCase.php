@@ -33,7 +33,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
         $app['config']->set('logging.default', 'database');
     }
 
-    public function setUp()
+    public function setUp(): void
     {
         ini_set('memory_limit', '512M');
         parent::setUp();
