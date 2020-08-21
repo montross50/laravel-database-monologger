@@ -10,7 +10,7 @@ php:
 
 env:
   global:
-    - TEST_COMMAND="composer test"
+    - TEST_COMMAND="vendor/bin/phpunit --coverage-clover coverage.xml"
 
 before_install:
   - travis_retry composer self-update
@@ -20,3 +20,6 @@ install:
 
 script:
   - $TEST_COMMAND
+  
+  after_success:
+    - bash <(curl -s https://codecov.io/bash)
