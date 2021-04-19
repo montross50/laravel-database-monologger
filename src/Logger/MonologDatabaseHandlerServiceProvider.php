@@ -23,7 +23,6 @@ class MonologDatabaseHandlerServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadMigrationsFrom(__DIR__.'/Migrations');
-
         $configPath = __DIR__ . '/../../config/db-logging.php';
         if (function_exists('config_path')) {
             $publishPath = config_path('db-logging.php');
