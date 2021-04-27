@@ -14,8 +14,6 @@ coverage:
                 loop: yes
                 method: no
                 macro: no
-ci:
-    yml:
 comment:
     layout: "diff,flags,files,footer"
     behavior: default

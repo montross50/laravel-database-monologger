@@ -32,6 +32,7 @@ class MonologDatabaseHandlerServiceProvider extends ServiceProvider
         $this->publishes([$configPath => $publishPath], 'config');
     }
 
+
     /**
      * Register the service provider.
      *
