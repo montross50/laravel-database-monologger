@@ -27,6 +27,7 @@ class DatabaseHandler extends AbstractProcessingHandler
         $this->maxRecordLength = $this->config->get('db-logging.max_record_length');
         $this->appLogName = $this->config->get('db-logging.log_name');
         parent::__construct($level, $bubble);
+        $x = 1;
     }
 
     /**
