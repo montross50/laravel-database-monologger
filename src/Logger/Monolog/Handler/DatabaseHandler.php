@@ -36,7 +36,8 @@ class DatabaseHandler extends AbstractProcessingHandler
      */
     protected function write(array $record)
     {
-        $data = [
+	$x = 1;    
+	    $data = [
             'instance'    => gethostname(),
             'application' => $this->appLogName,
             'message'     => str_limit($record['message'], $this->maxRecordLength),
