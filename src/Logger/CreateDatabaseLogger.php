@@ -20,6 +20,6 @@ class CreateDatabaseLogger
 
     public function testFunction()
     {
-        echo "test";
+        echo "tester";
     }
 }
