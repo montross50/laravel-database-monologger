@@ -17,4 +17,9 @@ class CreateDatabaseLogger
     {
         return app(DatabaseHandler::class, [$config]);
     }
+
+    public function testFunction()
+    {
+        echo "test";
+    }
 }
