@@ -7,7 +7,6 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     {
         return [MonologDatabaseHandlerServiceProvider::class];
     }
-
     /**
      * Define environment setup.
      *
