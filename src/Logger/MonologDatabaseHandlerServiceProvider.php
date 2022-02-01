@@ -39,7 +39,8 @@ class MonologDatabaseHandlerServiceProvider extends ServiceProvider
      * @return void
      */
     public function register()
-    {
+    {   
+	echo "here";
         $configPath = __DIR__ . '/../../config/db-logging.php';
         $this->mergeConfigFrom($configPath, 'db-logging');
         $this->app->bind(DatabaseHandler::class, function ($app, $params) {
